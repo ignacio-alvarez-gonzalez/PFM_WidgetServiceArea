@@ -1,0 +1,263 @@
+<div id ="all" style="margin: 0px; padding: 10px;">
+  <div class="caja" style="margin-top:10px;">
+    <h1 style="align-self: center;"><b>BUSCADOR DE PUNTOS DE INTERÉS</b></h1>
+    <div ><!--Ayuda e informacion del widget-->
+      <button onclick="ocultar('informacion');" style="height: 50px; width: 50px;position: sticky; top: 2px;"><img src="https://www.flaticon.es/premium-icon/icons/svg/1709/1709994.svg" style="height: 46px; width: 46px; position: sticky;padding: 0px;margin:0px" alt="Ayuda"></button>
+        <div id ="informacion" >
+          <ol style="list-style-type:none;">
+              <p style="padding: 0px;margin:0px"> Esta herramienta permite visualizar los sitios de interés que se encuentran dentro de unas regiones accesibles o áreas de servicio en intervalos de distancia en torno a un punto de recarga u otra ubicación definida por el usuario.<br>Para utilizar la herramienta, seleccione entre las opciones indicadas a continuación.</p><br>
+            
+              <li> 1. Marca con un punto en el mapa la ubicación desde la que quieres calcular el área de servicio.<br></li>
+              <li> 2. Selecciona las capas de interés que quieres buscar entre Servicios y Ocio. <br></li>
+              <li> 3. Cuando termines la selección de puntos de interés tendras que elegir entre calcular los intervalos en función del tiempo andando o de la distancia.<br></li>
+              <li> 4. En este apartado aparecen tres espacios a rellenar, esto permite ver  de un solo vistazo los puntos de interesen la zona, en función de las distancias o tiempos elegidos.</li>
+          </ol>
+        </div>
+        
+    </div>
+  
+  </div>
+  <div id="selectorbotones" style="align-items: center; align-content: center;">
+    <div>
+        <button  onclick="ocultarPro('primer','segun','tercer','cuarto','fin')" style="width: 50px;height: 50px;font-size: x-large; margin: 8px; padding: 0px;   "> <img src="./images/uno.png" height="45px" width="45" padding =0px margin="0px"></button>
+        </div>
+
+    <div>
+      <button  onclick="ocultarPro('segun','primer','tercer','cuarto','fin')"style="width: 50px;height: 50px;font-size: x-large; margin: 8px; padding: 0px;  "> <img src="./images/dos.png" height="45px" width="45"></button>
+      </div>
+
+    <div>
+      <button  onclick="ocultarPro('tercer','segun','primer','cuarto','fin')"style="width: 50px;height: 50px;font-size: x-large; margin: 8px; padding: 0px;  "> <img src="./images/tres.png" height="45px" width="45"></button>
+       </div>
+      
+    <div>
+      <button  onclick="ocultarPro('cuarto','tercer','segun','primer','fin')" style="width: 50px;height: 50px;margin: 0px; padding: 0px;margin:8px;  "> <img src="./images/cuatro.png" height="45px" width="45"></button>
+
+    </div>
+
+    <div>
+      <button onclick="ocultarPro('fin','tercer','segun','primer','cuarto')" style="width: 50px;height: 50px;font-size: x-large; margin: 8px; padding: 0px; "> <img src="./images/cinco.png" height="45px" width="45" ></button>
+    </div>
+  </div>
+  <div class="caja"  id="primer" style="display: none; flex-direction: column;"><!---Seleccionar la ubicación el boton dibuja tu punto-->
+    <p class="intro">1. Pulse en el botón para comenzar a dibujar un punto en el mapa:</p>
+    <button id="ubicacion" style="width: 50px;height: 50px;"><img src="https://image.flaticon.com/icons/png/512/106/106165.png" height="48px" width="48px" alt=""></button><br>
+    <p class="intro">2. También puede buscar una ubicación:</p>
+    <div id="buscadorUbicacion"></div><br>
+    <p class="intro">3. O bien, seleccione un punto de recarga:</p>
+    <button id="seleccion" style="width: 50px;height: 50px;"><img src="https://www.flaticon.es/svg/vstatic/svg/2879/2879126.svg?token=exp=1618348774~hmac=d524c85c680eb2bf6efa344602a719f9" height="48px" width="48px" alt=""></button><br>
+    
+  </div>
+  <br>
+  <div id = "segun" style="display: none;">
+      <div id="seleccionCapas" data-dojo-attach-point="seleccionCapas"> <!--El selector  de capas de busqueda-->
+        <div id ="titulos" class="caja" > <!--div titulo-->
+          <p>2. Pulse <button onclick="ocultar('main')" style="margin: 0px;padding-left: 2px; padding-right: 2px;">aqui</button> para seleccionar los puntos de interes que quieres en tu area de servicio.</p>
+        </div>
+        <div id ="main" style="display:none; "> <!--div de ambos, servicios y ocio-->
+          <div style="display: flex; flex-direction: row;"> 
+            <div id="servicios"> <!--Div servicios-->
+                <p>Servicios:</p>
+                  <ul style="list-style-type:none;">
+                    <li>
+                      <label class="container" for="capa1">...     Residencias
+                        <input  type="checkbox" id="capa1" data-dojo-attach-point="capa1" value="2">
+                        <span class="checkmark"></span>
+                      </label>
+                      
+                      
+                    </li> 
+                      
+                    <li>
+                      <label class="container" for="capa3">...     Hospitales
+                        <input type="checkbox" id="capa3" data-dojo-attach-point="capa3" value="4">
+                        <span class="checkmark"></span>
+                      </label>
+                      
+                    
+                    </li>
+                    
+                    <li>
+                      <label class="container" for="capa6">...     Servicios varios
+                        <input type="checkbox" id="capa6" data-dojo-attach-point="capa6" value="7">
+                        <span class="checkmark"></span>
+                      </label>
+                    
+                    </li> 
+
+                    <li> 
+                      <label class="container" for="capa7">...     Sanidad
+                        <input type="checkbox" id="capa7" data-dojo-attach-point="capa7" value="8">
+                        <span class="checkmark"></span>
+                      </label>
+                      
+                    </li> 
+
+                    <li> 
+                      <label class="container" for="capa8">...     Religioso
+                        <input type="checkbox" id="capa8" data-dojo-attach-point="capa8" value="9">
+                        <span class="checkmark"></span>
+                      </label>
+                    
+                    </li> 
+
+                    <li> 
+                      <label class="container" for="capa10">...     Enseñanza
+                        <input type="checkbox" id="capa10" data-dojo-attach-point="capa10" value="11">
+                        <span class="checkmark"></span>
+                      </label>
+                      
+                    </li> 
+
+                    <li>
+                      <label class="container" for="capa2">...     Cajeros
+                        <input type="checkbox" id="capa2" data-dojo-attach-point="capa2" value="3">
+                        <span class="checkmark"></span>
+                      </label>
+                      
+                    </li> 
+                  </ul>
+                
+            </div>
+            <div id="ocio"><!--Div Ocio-->
+                <p>Ocio:</p>
+                
+                  <ul style="list-style-type:none;">
+                    <li>
+                      <label class="container" for="capa4">...     Arte rupestre
+                        <input type="checkbox" id="capa4" data-dojo-attach-point="capa4" value="5">
+                        <span class="checkmark"></span>
+                      </label>
+                      
+                    </li> 
+
+                    <li>
+                    <label class="container" for="capa5">...     Playas 
+                      <input type="checkbox" id="capa5" data-dojo-attach-point="capa5" value="6">
+                      <span class="checkmark"></span>
+                    </label>
+                    
+                    
+                    </li> 
+
+                    <li>
+                    <label class="container" for="capa9">...     Otros
+                      <input type="checkbox" id="capa9" data-dojo-attach-point="capa9" value="10">
+                      <span class="checkmark"></span>
+                    </label>
+                    
+                    </li> 
+
+                    <li>
+                    <label class="container" for="capa11">...     Deportes
+                      <input type="checkbox" id="capa11" data-dojo-attach-point="capa11" value="12">
+                      <span class="checkmark"></span>
+                    </label>
+                    
+                    </li> 
+
+                    <li>
+                    <label class="container" for="capa12">...     Cultura
+                      <input type="checkbox" id="capa12" data-dojo-attach-point="capa12" value="13">
+                      <span class="checkmark"></span>
+                    </label>
+                    
+                    </li> 
+
+                    <li>  
+                    <label class="container" for="capa13">...     Centros comerciales
+                      <input type="checkbox" id="capa13" data-dojo-attach-point="capa13" value="14">
+                      <span class="checkmark"></span>
+                    </label>
+                    
+                    </li> 
+
+                    <li>  
+                    <label class="container" for="capa14">...     Mercados
+                      <input type="checkbox" id="capa14" data-dojo-attach-point="capa14" value="15">
+                      <span class="checkmark"></span>
+                    </label>
+                    
+                    </li> 
+
+                    <li>  
+                    <label class="container" for="capa15">...    Hoteles
+                      <input type="checkbox" id="capa15" data-dojo-attach-point="capa15" value="17">
+                      <span class="checkmark"></span>
+                    </label>
+                    
+                    </li> 
+                  </ul>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <br>
+  <div class="caja" id="tercer" style="display: none;">
+    <div  id="selectorImpedancia" style="display: block; flex-direction: column;">
+      <div>
+        <p>3. Elegir entre calcular los intervalos en función del tiempo andando o de la distancia en metros:</p>
+        <div>
+          <div>
+
+          
+            <label for="tiempoPie" class="container1">Tiempo en minutos:    <input type="radio" id="tiempoPie" name="impedancia" value="tiempoPie" data-dojo-attach-point="tiempoPie"> 
+              
+              <span class="checkmark1"></span>
+              </label>
+          </div>
+          <br>
+          <div>
+            
+            <label for="distancia" class="container1">Distancia en metros:     <input type="radio" id="distancia" name="impedancia" value="distancia" data-dojo-attach-point="distancia">
+              
+              <span class="checkmark1"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="caja" id ="cuarto" style="display: none;">
+    <p>4. Rellena los intervalos en función de la distancia o el tiempo que quieras para cada tramo:</p>
+    
+    <div  id="intervalos">
+      <label style="margin: 5px;" for="intervalo1" class="container"> Intervalo 1: </label> 
+      <input id="intervalo1" data-dojo-type="dijit/form/TextBox" value=250 style="margin-right: 5px;"/>
+      
+      <br>
+      <label style="margin: 5px;" for="intervalo2" class="container">Intervalo 2: </label> 
+      <input id="intervalo2" data-dojo-type="dijit/form/TextBox" value=500 style="margin-right: 5px;"/>
+      <br>
+      <label style="margin: 5px;" for="intervalo3"class="container">Intervalo 3: </label> 
+      <input id="intervalo3" data-dojo-type="dijit/form/TextBox" value=1000 style="margin-right: 5px; margin-bottom: 10px;"/>
+      <br>
+    </div>
+    
+  </div>
+  
+  
+  <div class="caja" id="fin" style="display: none;">
+    <p>5. Si ya tienes todos los parámetros, pulsa el botón:</p>
+    <button id="ejecutar"><img src="./images/play.png" alt="play" height="50px" width="50px"></button>
+    
+    
+  </div> 
+  <br> 
+  <br>
+  <div style="color:red;">
+    <p  data-dojo-attach-point="hayQueSeleccionarImpedancia"></p>
+    <p  data-dojo-attach-point="hayQueSeleccionarUbicacion"></p>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
