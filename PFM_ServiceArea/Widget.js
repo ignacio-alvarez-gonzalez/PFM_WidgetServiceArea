@@ -1,16 +1,19 @@
 function ocultar(esto) {
+
   vista = document.getElementById(esto).style.display;
   if (vista == 'none') vista = 'flex';else vista = 'none';
 
   document.getElementById(esto).style.display = vista;
   document.getElementById(esto).style.flexDirection = 'column';
 }
+
 function ocultarPro(bueno, malo1, malo2, malo3, malo4) {
   var vbueno = document.getElementById(bueno).style.display;
   var vmalo1 = document.getElementById(malo1).style.display;
   var vmalo2 = document.getElementById(malo2).style.display;
   var vmalo3 = document.getElementById(malo3).style.display;
   var vmalo4 = document.getElementById(malo4).style.display;
+
   if (vbueno == 'none') {
     vbueno = 'flex';
     vmalo1 = 'none';
@@ -26,7 +29,6 @@ function ocultarPro(bueno, malo1, malo2, malo3, malo4) {
   document.getElementById(malo2).style.display = vmalo2;
   document.getElementById(malo3).style.display = vmalo3;
   document.getElementById(malo4).style.display = vmalo4;
-  // jimu-panel jimu-on-screen-widget-panel jimu-main-background
 
 }
 define([
@@ -83,27 +85,19 @@ define([
   
     postCreate: function() {
       this.inherited(arguments);
-      console.log('PFM_ServiceArea::postCreate');
     },
 
-    // startup: function() {
-    //   this.inherited(arguments);
-    //   console.log('PFM_ServiceArea::startup');
-    // },
-
     onOpen: function(){
-      console.log('PFM_ServiceArea::onOpen');
+
+      // AL ABRIR EL WIDGET SE ALMACENAN LAS VARIABLES NECESARIAS A LO LARGO DEL CÓDIGO
 
       var miMapa = this.map;
-      console.log(miMapa);
       
       miMapa.graphics.clear();
 
       var capaPuntosRecarga = this.map.itemInfo.itemData.operationalLayers[0];
-      console.log("La capa de puntos de recarga: ", capaPuntosRecarga);
 
       var miPunto;
-      console.log(miPunto);
 
       var miUbicacion;
 
@@ -234,7 +228,6 @@ define([
         if (capa13.checked == true){capasSeleccionadas.push(capa13.value)};
         if (capa14.checked == true){capasSeleccionadas.push(capa14.value)};
         if (capa15.checked == true){capasSeleccionadas.push(capa15.value)};
-        console.log(capasSeleccionadas);
 
         var impedanciaSeleccionada;
         if (impedanciaTiempoPie.checked == true) {
@@ -352,43 +345,13 @@ define([
     },
 
     onClose: function(){
-      console.log('PFM_ServiceArea::onClose');
 
       this.map.graphics.clear();
-      this.map.itemInfo.itemData.operationalLayers[0].layerObject.show();
-
-      console.log("ocultado")
-      
+      this.map.itemInfo.itemData.operationalLayers[0].layerObject.show();     
 
     },
-
-    // onMinimize: function(){
-    //   console.log('PFM_ServiceArea::onMinimize');
-    // },
-
-    // onMaximize: function(){
-    //   console.log('PFM_ServiceArea::onMaximize');
-    // },
-
-    // onSignIn: function(credential){
-    //   console.log('PFM_ServiceArea::onSignIn', credential);
-    // },
-
-    // onSignOut: function(){
-    //   console.log('PFM_ServiceArea::onSignOut');
-    // }
-
-    // onPositionChange: function(){
-    //   console.log('PFM_ServiceArea::onPositionChange');
-    // },
-
-    // resize: function(){
-    //   console.log('PFM_ServiceArea::resize');
-    // }
-
-    //methods to communication between widgets:
 
   });
 
 });
-//# sourceMappingURL=Widget.js.map
+
